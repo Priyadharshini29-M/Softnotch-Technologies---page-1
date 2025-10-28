@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopify Applications & SaaS Solutions | Softnotch Technologies</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #fff;
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* ===== Global Button ===== */
+    .sn-btn {
+      display: inline-block;
+      background: linear-gradient(90deg, #0d82fd, #04df9a);
+      color: #fff;
+      padding: 12px 30px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(13,130,253,0.3);
+    }
+
+    .sn-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 18px rgba(4,223,154,0.4);
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero-section {
+      width: 100%;
+      min-height: 60vh;
+      background: radial-gradient(circle at 20% 40%, rgba(13,130,253,0.08) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 60%, rgba(4,223,154,0.08) 0%, transparent 50%),
+                  linear-gradient(to bottom right, #ffffff 0%, #f9fefe 100%);
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(to right, rgba(0,0,0,0.02) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(0,0,0,0.02) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-subtitle {
+      display: inline-block;
+      background: rgba(13,130,253,0.08);
+      color: #0d82fd;
+      padding: 6px 18px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.8px;
+      margin-bottom: 16px;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      background: linear-gradient(90deg, #0d82fd, #04df9a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 18px;
+    }
+
+    .hero-description {
+      font-size: 0.8rem;
+      color: #555;
+      max-width: 720px;
+      margin: 0 auto 35px auto;
+      line-height: 1.7;
+    }
+
+    /* ===== SECTION BASE ===== */
+    section {
+      padding: 70px 8%;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #0d82fd;
+      margin-bottom: 15px;
+    }
+
+    section h2 span {
+      color: #04df9a;
+    }
+
+    section p {
+      font-size: 0.8rem;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 45px;
+      line-height: 1.7;
+    }
+
+   .sn-ai-feature {
+  padding: 80px 5%;
+  font-family: "Poppins", sans-serif;
+  background: #f9f9fb;
+  color: #222;
+}
+
+.sn-feature-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.sn-feature-header h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.sn-feature-header span {
+  color: #0074e4;
+}
+
+.sn-feature-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.sn-feature-image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.sn-feature-image img {
+  max-width: 80%;
+  height: auto;
+}
+
+.sn-feature-grid {
+  flex: 1 1 45%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.sn-feature-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sn-feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.sn-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.sn-feature-card h3 {
+  font-size: 0.8rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.sn-feature-card p {
+  color: #555;
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+/* 🌐 Responsive Adjustments */
+@media (max-width: 992px) {
+  .sn-feature-content {
+    flex-direction: column;
+  }
+
+  .sn-feature-image, .sn-feature-grid {
+    flex: 1 1 100%;
+  }
+
+  .sn-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sn-feature-header h2 {
+    font-size: 2rem;
+  }
+}
+
+
+    /* ===== CASE STUDY ===== */
+    .case-section {
+      background: #f9fefe;
+      padding: 70px 8%;
+    }
+
+    .case-box {
+      max-width: 850px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 14px;
+      padding: 35px 25px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+      text-align: left;
+    }
+
+    .case-box h3 {
+      color: #0d82fd;
+      margin-bottom: 12px;
+    }
+
+    .case-box p {
+      color: #555;
+      line-height: 1.7;
+      font-size: 0.8rem;
+    }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      background: linear-gradient(90deg, #0d82fd, #04df9a);
+      color: #fff;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .cta-section h2 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .cta-section p {
+      color: #e9fef9;
+      margin-bottom: 30px;
+      font-size: 1rem;
+    }
+
+    
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-description {
+        font-size: 0.95rem;
+        padding: 0 10px;
+      }
+
+      section {
+        padding: 50px 6%;
+      }
+
+      .sn-feature-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .sn-feature-card {
+        padding: 20px 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 1.8rem;
+      }
+
+      .hero-description {
+        font-size: 0.9rem;
+      }
+
+      .sn-feature-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .sn-feature-card {
+        max-width: 100%;
+      }
+
+      .case-box {
+        padding: 25px 20px;
+      }
+
+      .cta-section {
+        padding: 60px 15px;
+      }
+    }
+
+    .sn-ai-feature p{
+      font-size: 0.8rem;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <div class="hero-subtitle">🛍️ SHOPIFY APPLICATIONS & SAAS SOLUTIONS</div>
+      <h1 class="hero-title">Supercharge Your Shopify Store with Smart SaaS Apps</h1>
+      <p class="hero-description">
+        Shopify is powerful, but every growing brand knows the default features only take you so far. At Softnotch, we go beyond plug-and-play — building custom Shopify SaaS applications that solve real problems, unlock new revenue streams, and help your store sell smarter.
+      </p>
+      <a href="#" class="sn-btn">Explore Shopify Solutions</a>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+ <section class="sn-ai-feature">
+  <div class="sn-feature-header">
+    <h2>Innovative <span>Shopify SaaS Apps</span></h2>
+    <p>From boosting conversions to building loyalty, our apps are designed to transform your eCommerce growth journey.</p>
+  </div>
+
+  <div class="sn-feature-content">
+    <div class="sn-feature-image">
+      <img src="https://cdn-icons-png.flaticon.com/512/870/870907.png" alt="Shopify Illustration">
+    </div>
+
+    <div class="sn-feature-grid">
+      <div class="sn-feature-card">
+        <div class="sn-icon">🎯</div>
+        <h3>PushNova: Smarter Sales Targeting</h3>
+        <p>Target customers by cart value, order value, or abandoned carts. Deliver personalized nudges at the perfect time to boost engagement and conversions.</p>
+      </div>
+      <div class="sn-feature-card">
+        <div class="sn-icon">🛒</div>
+        <h3>Checkout Optimizer: Reduce Drop-Offs</h3>
+        <p>Transform checkout into a conversion-first experience with trust badges, timers, and dynamic upsells — cutting abandonment rates significantly.</p>
+      </div>
+      <div class="sn-feature-card">
+        <div class="sn-icon">💎</div>
+        <h3>Loyalty & Subscription Manager</h3>
+        <p>Turn one-time buyers into loyal customers with flexible subscriptions, reward programs, and personalized offers that keep them coming back.</p>
+      </div>
+      <div class="sn-feature-card">
+        <div class="sn-icon">📈</div>
+        <h3>Real-Time Analytics</h3>
+        <p>Track performance, engagement, and retention through intuitive dashboards built to empower your eCommerce strategy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CASE STUDY -->
+  <section class="case-section">
+    <h2>Real Impact: <span>How Shopify SaaS Scales Growth</span></h2>
+    <p>We don’t build apps for the sake of it — we build tools that solve problems and deliver measurable ROI. Here’s how one brand leveled up with our Shopify SaaS suite.</p>
+    <div class="case-box">
+      <h3>D2C Beverage Brand Success Story</h3>
+      <p>
+        A leading D2C beverage company used our Loyalty & Subscription Manager app to build personalized rewards and recurring plans. Within six months, recurring revenue increased by 45%, and retention rates reached record highs.
+        <br><br>
+        Combined with PushNova’s targeted reminders and Checkout Optimizer’s frictionless design, the brand turned one-time buyers into lifetime customers — all through Shopify-native solutions.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <h2>Supercharge Your Store with Custom Apps</h2>
+    <p>Let’s create Shopify SaaS applications that boost conversions, retention, and revenue — tailored to your business goals.</p>
+    <a href="#" class="sn-btn">Get Started Today →</a>
+  </section>
+
+</body>
+</html>

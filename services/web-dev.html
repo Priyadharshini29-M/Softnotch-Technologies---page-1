@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Development | Softnotch</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        .webdev-reset {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .webdev-container {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .webdev-hero-section {
+            min-height:90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0fdf9 100%);
+        }
+
+        .webdev-hero-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+        }
+
+        .webdev-grid-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(13, 130, 253, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(13, 130, 253, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .webdev-floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            filter: blur(60px);
+        }
+
+        .webdev-shape-1 {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            top: 10%;
+            right: 10%;
+        }
+
+        .webdev-shape-2 {
+            width: 300px;
+            height: 300px;
+            background: linear-gradient(225deg, #04df9a 0%, #0d82fd 100%);
+            bottom: 20%;
+            left: 5%;
+        }
+
+        .webdev-shape-3 {
+            width: 250px;
+            height: 250px;
+            background: #0d82fd;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .webdev-hero-wrapper {
+            text-align: center;
+            padding: 2rem;
+            max-width: 1200px;
+            z-index: 1;
+        }
+
+        .webdev-hero-label {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(13, 130, 253, 0.1);
+            border: 1px solid rgba(13, 130, 253, 0.3);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            color: #0d82fd;
+            font-weight: 600;
+        }
+
+        .webdev-main-heading {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+            line-height: 1.2;
+        }
+
+        .webdev-hero-description {
+            font-size: 0.8rem;
+            color: #4a5568;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            line-height: 1.8;
+            opacity: 0;
+        }
+
+        .webdev-primary-btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            box-shadow: 0 10px 40px rgba(13, 130, 253, 0.3);
+        }
+
+        .webdev-primary-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 50px rgba(13, 130, 253, 0.4);
+        }
+
+        .webdev-main-section {
+            padding: 2rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .webdev-section-heading {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .webdev-section-label {
+            color: #0d82fd;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .webdev-section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .webdev-section-text {
+            color: #4a5568;
+            font-size: 0.8rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .webdev-services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .webdev-service-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 2.5rem;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .webdev-service-box p{
+            font-size: 0.8rem;
+        }
+
+        .webdev-service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #0d82fd, #04df9a);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .webdev-service-box:hover::before {
+            transform: scaleX(1);
+        }
+
+        .webdev-service-box:hover {
+            background: #f8f9ff;
+            transform: translateY(-5px);
+            border-color: #0d82fd;
+            box-shadow: 0 15px 30px rgba(13, 130, 253, 0.15);
+        }
+
+        .webdev-service-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .webdev-service-name {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #0d82fd;
+        }
+
+        .webdev-service-info {
+            color: #4a5568;
+            line-height: 1.7;
+        }
+
+        .webdev-features-wrapper {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .webdev-features-track {
+            display: flex;
+            gap: 1.5rem;
+            animation: webdev-slide 30s linear infinite;
+        }
+
+        @keyframes webdev-slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .webdev-features-wrapper:hover .webdev-features-track {
+            animation-play-state: paused;
+        }
+
+        .webdev-feature-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+            padding: 2rem 1.5rem;
+            background: #ffffff;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            min-width: 280px;
+            max-width: 280px;
+            height: 280px;
+            flex-shrink: 0;
+        }
+
+        .webdev-feature-box:hover {
+            border-color: #04df9a;
+            box-shadow: 0 8px 20px rgba(4, 223, 154, 0.15);
+            transform: translateY(-3px);
+        }
+
+        .webdev-feature-emoji {
+            font-size: 2.5rem;
+            min-width: auto;
+        }
+
+        .webdev-feature-name {
+            color: #0d82fd;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size:1rem;
+        }
+
+        .webdev-feature-detail {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .webdev-cases-section {
+            background: linear-gradient(180deg, #f8f9ff 0%, #f0fdf9 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .webdev-cases-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(13, 130, 253, 0.1) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            border-radius: 50%;
+        }
+
+        .webdev-cases-section::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(4, 223, 154, 0.1) 0%, transparent 70%);
+            bottom: -100px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .webdev-case-box {
+            background: #ffffff;
+            border: 2px solid #e2e8f0;
+            padding: 3rem;
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .webdev-case-box:hover {
+            border-color: #0d82fd;
+            box-shadow: 0 15px 40px rgba(13, 130, 253, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .webdev-case-name {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .webdev-case-detail {
+            color: #4a5568;
+            font-size: 0.8rem;
+            line-height: 1.8;
+        }
+
+        .webdev-stats-wrapper {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .webdev-stat-box {
+            background: linear-gradient(135deg, rgba(13, 130, 253, 0.1) 0%, rgba(4, 223, 154, 0.1) 100%);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            border: 2px solid rgba(13, 130, 253, 0.2);
+        }
+
+        .webdev-stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+        }
+
+        .webdev-stat-name {
+            color: #4a5568;
+            font-size: 0.9rem;
+        }
+
+        .webdev-why-section {
+            background: #ffffff;
+            text-align: center;
+        }
+
+        .webdev-why-text {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1rem;
+            color: #4a5568;
+            line-height: 1.9;
+        }
+
+        .webdev-text-highlight {
+            background: linear-gradient(135deg, #0d82fd 0%, #04df9a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 600;
+        }
+
+        .webdev-cta-section {
+            text-align: center;
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, #f8f9ff 0%, #f0fdf9 100%);
+        }
+
+        .webdev-cta-section .webdev-section-title {
+            margin-bottom: 2rem;
+        }
+
+        .webdev-cta-text {
+            color: #4a5568;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .webdev-bg-light {
+            background: #f8f9ff;
+        }
+
+        @media (max-width: 768px) {
+            .webdev-services-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .webdev-stats-wrapper {
+                flex-direction: column;
+            }
+
+            .webdev-main-section {
+                padding: 4rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="webdev-container webdev-reset">
+    <div class="webdev-hero-section">
+        <div class="webdev-hero-background">
+            <div class="webdev-grid-pattern"></div>
+            <div class="webdev-floating-shape webdev-shape-1"></div>
+            <div class="webdev-floating-shape webdev-shape-2"></div>
+            <div class="webdev-floating-shape webdev-shape-3"></div>
+        </div>
+        <div class="webdev-hero-wrapper">
+            <div class="webdev-hero-content-right">
+                <div class="webdev-hero-label">🚀 E-COMMERCE EXCELLENCE</div>
+                <h1 class="webdev-main-heading">Engineering Growth Through Commerce Platforms</h1>
+                <p class="webdev-hero-description">Your online store isn't just a sales channel—it's the heartbeat of your brand. We craft scalable, secure, and conversion-optimized eCommerce ecosystems that transform browsers into loyal customers and transactions into lasting relationships.</p>
+                <a href="#contact" class="webdev-primary-btn">🚀 Launch Your Store Today</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="webdev-main-section">
+        <div class="webdev-section-heading">
+            <span class="webdev-section-label">OUR EXPERTISE</span>
+            <h2 class="webdev-section-title">Platform Solutions That Scale</h2>
+            <p class="webdev-section-text">From D2C startups to enterprise multi-nationals, we build tailored solutions combining sleek design, frictionless UX, and robust technology stacks.</p>
+        </div>
+
+        <div class="webdev-services-wrapper">
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">🛍️</span>
+                <h3 class="webdev-service-name">Shopify Development</h3>
+                <p class="webdev-service-info">Custom themes, headless storefronts, checkout optimization, and seamless app integrations. Built for speed, designed for conversions.</p>
+            </div>
+
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">🔧</span>
+                <h3 class="webdev-service-name">WooCommerce Solutions</h3>
+                <p class="webdev-service-info">Flexible WordPress-powered stores with subscription models, POS integrations, custom plugins, and payment gateway optimization.</p>
+            </div>
+
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">⚡</span>
+                <h3 class="webdev-service-name">Magento Enterprise</h3>
+                <p class="webdev-service-info">Enterprise-grade eCommerce with ERP/CRM integrations, advanced B2B modules, multi-store management, and global expansion readiness.</p>
+            </div>
+
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">🎨</span>
+                <h3 class="webdev-service-name">Conversion-Centric Design</h3>
+                <p class="webdev-service-info">UX/UI engineered to engage visitors, reduce bounce rates, and maximize checkout success through data-driven design principles.</p>
+            </div>
+
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">🤖</span>
+                <h3 class="webdev-service-name">AI-Powered Features</h3>
+                <p class="webdev-service-info">Smart product recommendations, dynamic pricing, personalized shopping experiences, and predictive inventory management.</p>
+            </div>
+
+            <div class="webdev-service-box">
+                <span class="webdev-service-emoji">📊</span>
+                <h3 class="webdev-service-name">Analytics & Optimization</h3>
+                <p class="webdev-service-info">Advanced tracking, A/B testing frameworks, heat mapping, and real-time performance dashboards to drive continuous improvement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="webdev-main-section webdev-bg-light">
+        <div class="webdev-section-heading">
+            <span class="webdev-section-label">CAPABILITIES</span>
+            <h2 class="webdev-section-title">Custom Features That Drive Revenue</h2>
+        </div>
+
+        <div class="webdev-features-wrapper">
+            <div class="webdev-features-track">
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">💳</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Smart Checkout</h4>
+                        <p class="webdev-feature-detail">One-click purchasing, guest checkout optimization, and abandoned cart recovery systems</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🎁</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Loyalty Programs</h4>
+                        <p class="webdev-feature-detail">Points systems, tier-based rewards, and referral incentives that boost LTV</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">📈</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Dynamic Upsells</h4>
+                        <p class="webdev-feature-detail">AI-powered product bundles and intelligent cross-sell recommendations</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🔔</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Email Automation</h4>
+                        <p class="webdev-feature-detail">Klaviyo, Mailchimp integration with behavioral triggers and segmentation</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🌍</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Multi-Currency</h4>
+                        <p class="webdev-feature-detail">Global expansion support with localized pricing and payment methods</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">📱</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Mobile-First Design</h4>
+                        <p class="webdev-feature-detail">PWA capabilities and native app experiences for maximum mobile conversion</p>
+                    </div>
+                </div>
+
+                <!-- Duplicate set for seamless loop -->
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">💳</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Smart Checkout</h4>
+                        <p class="webdev-feature-detail">One-click purchasing, guest checkout optimization, and abandoned cart recovery systems</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🎁</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Loyalty Programs</h4>
+                        <p class="webdev-feature-detail">Points systems, tier-based rewards, and referral incentives that boost LTV</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">📈</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Dynamic Upsells</h4>
+                        <p class="webdev-feature-detail">AI-powered product bundles and intelligent cross-sell recommendations</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🔔</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Email Automation</h4>
+                        <p class="webdev-feature-detail">Klaviyo, Mailchimp integration with behavioral triggers and segmentation</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">🌍</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Multi-Currency</h4>
+                        <p class="webdev-feature-detail">Global expansion support with localized pricing and payment methods</p>
+                    </div>
+                </div>
+
+                <div class="webdev-feature-box">
+                    <span class="webdev-feature-emoji">📱</span>
+                    <div>
+                        <h4 class="webdev-feature-name">Mobile-First Design</h4>
+                        <p class="webdev-feature-detail">PWA capabilities and native app experiences for maximum mobile conversion</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="webdev-main-section webdev-cases-section">
+        <div class="webdev-section-heading">
+            <span class="webdev-section-label">SUCCESS STORIES</span>
+            <h2 class="webdev-section-title">Real Results, Real Growth</h2>
+            <p class="webdev-section-text">Our platform expertise translates directly into measurable business outcomes</p>
+        </div>
+
+        <div class="webdev-case-box">
+            <h3 class="webdev-case-name">🌿 D2C Wellness Brand</h3>
+            <p class="webdev-case-detail">Complete Shopify rebuild featuring subscription flows, intelligent upsells, and Klaviyo email automation. Transformed their customer journey from acquisition to retention.</p>
+            <div class="webdev-stats-wrapper">
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">300%</span>
+                    <span class="webdev-stat-name">Revenue Increase</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">4 Months</span>
+                    <span class="webdev-stat-name">Time to ROI</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">45%</span>
+                    <span class="webdev-stat-name">Repeat Purchase Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="webdev-case-box">
+            <h3 class="webdev-case-name">👗 Fashion Retailer</h3>
+            <p class="webdev-case-detail">Strategic migration from WooCommerce to Shopify with restructured checkout flow, multilingual AI chatbot, and personalized product recommendations.</p>
+            <div class="webdev-stats-wrapper">
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">5x</span>
+                    <span class="webdev-stat-name">Conversion Rate</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">-62%</span>
+                    <span class="webdev-stat-name">Cart Abandonment</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">78%</span>
+                    <span class="webdev-stat-name">Mobile Sales</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="webdev-case-box">
+            <h3 class="webdev-case-name">🏭 Enterprise FMCG Brand</h3>
+            <p class="webdev-case-detail">Custom Magento platform integrated with SAP ERP and Salesforce CRM for real-time inventory synchronization across multiple warehouses and sales channels.</p>
+            <div class="webdev-stats-wrapper">
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">3 Markets</span>
+                    <span class="webdev-stat-name">International Expansion</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">99.9%</span>
+                    <span class="webdev-stat-name">System Uptime</span>
+                </div>
+                <div class="webdev-stat-box">
+                    <span class="webdev-stat-value">250k</span>
+                    <span class="webdev-stat-name">SKUs Managed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="webdev-main-section webdev-why-section">
+        <div class="webdev-section-heading">
+            <span class="webdev-section-label">WHY SOFTNOTCH</span>
+            <h2 class="webdev-section-title">Beyond Beautiful Storefronts</h2>
+        </div>
+        <div class="webdev-why-text">
+            <p>E-commerce isn't just about setting up a digital storefront—it's about <span class="webdev-text-highlight">engineering growth</span>. We combine deep platform expertise, user-first design principles, and AI-powered optimization to ensure your store doesn't just look exceptional, but actively drives <span class="webdev-text-highlight">revenue</span>, builds <span class="webdev-text-highlight">loyalty</span>, and scales with your ambitions.</p>
+            <br>
+            <p>Every pixel, every click, every interaction is optimized for conversion. Every integration is built for scale. Every decision is backed by data.</p>
+        </div>
+    </section>
+
+    <section class="webdev-cta-section">
+        <h2 class="webdev-section-title">Ready to Transform Your Online Store?</h2>
+        <p class="webdev-cta-text">Whether you're launching your first D2C brand or scaling to international markets, we're ready to build your growth engine.</p>
+        <a href="#contact" class="webdev-primary-btn" style="opacity: 1;">🚀 Launch or Revamp Your Store Today</a>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations
+        const tl = gsap.timeline();
+        
+        tl.to('.webdev-hero-label', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        })
+        .to('.webdev-main-heading', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.4')
+        .to('.webdev-hero-description', {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: 'power3.out'
+        }, '-=0.6')
+        .to('.webdev-primary-btn', {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out'
+        }, '-=0.4');
+
+        // Animate grid overlay
+        gsap.to('.webdev-grid-pattern', {
+            backgroundPosition: '50px 50px',
+            duration: 20,
+            ease: 'none',
+            repeat: -1
+        });
+
+        // Floating shapes animation
+        gsap.to('.webdev-shape-1', {
+            x: 50,
+            y: 30,
+            duration: 8,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+
+        gsap.to('.webdev-shape-2', {
+            x: -40,
+            y: -50,
+            duration: 10,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+
+        gsap.to('.webdev-shape-3', {
+            scale: 1.3,
+            rotation: 180,
+            duration: 12,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true
+        });
+
+        // Service cards animation
+        gsap.utils.toArray('.webdev-service-box').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out'
+            });
+        });
+
+        // Feature items animation - removed as now using auto slider
+        // Cards now animate via CSS keyframes
+
+        // Case cards animation
+        gsap.utils.toArray('.webdev-case-box').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                delay: i * 0.2,
+                ease: 'power3.out'
+            });
+
+            // Animate stats within each case card
+            gsap.from(card.querySelectorAll('.webdev-stat-box'), {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 70%',
+                    toggleActions: 'play none none reverse'
+                },
+                scale: 0.8,
+                opacity: 0,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'back.out(1.7)'
+            });
+        });
+
+        // Section headers animation
+        gsap.utils.toArray('.webdev-section-heading').forEach(header => {
+            gsap.from(header, {
+                scrollTrigger: {
+                    trigger: header,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 40,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out'
+            });
+        });
+
+        // Why section animation
+        gsap.from('.webdev-why-text', {
+            scrollTrigger: {
+                trigger: '.webdev-why-text',
+                start: 'top 80%',
+                toggleActions: 'play none none reverse'
+            },
+            y: 50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        // Parallax effect for hero background
+        gsap.to('.webdev-hero-background', {
+            scrollTrigger: {
+                trigger: '.webdev-hero-section',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: true
+            },
+            y: 200,
+            opacity: 0
+        });
+
+        // Animate case section pseudo elements
+        gsap.to('.webdev-cases-section::before', {
+            scrollTrigger: {
+                trigger: '.webdev-cases-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            },
+            x: 100,
+            y: 100,
+            rotation: 45
+        });
+
+        gsap.to('.webdev-cases-section::after', {
+            scrollTrigger: {
+                trigger: '.webdev-cases-section',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            },
+            x: -100,
+            y: -100,
+            rotation: -45
+        });
+
+        // Smooth scroll for CTA buttons
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #fff;
+        color: #111;
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* ===== Hero Section ===== */
+      .sn-hero {
+        height: 50vh;
+        width: 100%;
+        background: linear-gradient(
+            rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.65)
+          ),
+          url("https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1974&auto=format&fit=crop")
+            center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+      }
+
+      .sn-hero h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        letter-spacing: 0.5px;
+      }
+
+      .sn-hero p {
+        font-size: 0.8rem;
+        max-width: 700px;
+        color: #eaeaea;
+      }
+
+      /* ===== Feature Section ===== */
+      .sn-ai-feature {
+        width: 100%;
+        padding: 60px 8%;
+        background: #fff;
+        text-align: center;
+      }
+
+      .sn-feature-header h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        font-weight: 600;
+        color: #111;
+      }
+
+      .sn-feature-header h2 span {
+        color: #0d82fd;
+      }
+
+      .sn-feature-header p {
+        max-width: 750px;
+        margin: 0 auto 40px;
+        font-size: 0.8rem;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      /* ===== Feature Content Layout ===== */
+      .sn-feature-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .sn-feature-image {
+        flex: 0.8;
+        text-align: center;
+      }
+
+      .sn-feature-image img {
+        width: 260px;
+        max-width: 100%;
+      }
+
+      .sn-feature-grid {
+        flex: 1.2;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+        justify-items: center;
+      }
+
+      .sn-feature-card {
+        background: #f9f9f9;
+        border-radius: 16px;
+        padding: 25px 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        text-align: left;
+        max-width: 300px;
+      }
+
+      .sn-feature-card:hover {
+        transform: translateY(-6px);
+        background: #ffffff;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      }
+
+      .sn-icon {
+        font-size: 1.8rem;
+        color: #0d82fd;
+        margin-bottom: 10px;
+      }
+
+      .sn-feature-card h3 {
+        font-size: 1rem;
+        color: #0d82fd;
+        margin-bottom: 8px;
+      }
+
+      .sn-feature-card p {
+        font-size: 0.8rem;
+        color: #555;
+        line-height: 1.5;
+      }
+
+      /* ===== Responsive Design ===== */
+      @media (max-width: 1024px) {
+        .sn-hero {
+          height: 65vh;
+        }
+
+        .sn-feature-content {
+          flex-direction: column;
+        }
+
+        .sn-feature-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .sn-hero h1 {
+          font-size: 2rem;
+        }
+
+        .sn-hero p {
+          font-size: 1rem;
+        }
+
+        .sn-ai-feature {
+          padding: 40px 6%;
+        }
+
+        .sn-feature-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .sn-feature-image img {
+          width: 200px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .sn-hero {
+          height: 50vh;
+          padding: 0 15px;
+        }
+
+        .sn-feature-header h2 {
+          font-size: 1.6rem;
+        }
+
+        .sn-feature-card {
+          padding: 20px;
+          max-width: 100%;
+        }
+
+        .sn-feature-card h3 {
+          font-size: 1rem;
+        }
+
+        .sn-feature-card p {
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ===== Hero Section ===== -->
+    <section class="sn-hero">
+      <h1>Experience the Future of Interaction</h1>
+      <p>
+        Empower your business with intelligent AI chatbots that engage, assist,
+        and convert your customers 24/7.
+      </p>
+    </section>
+
+    <!-- ===== Why Choose AI Chatbots Section ===== -->
+    <section class="sn-ai-feature">
+      <div class="sn-feature-header">
+        <h2>Why Choose <span>AI Chatbots</span>?</h2>
+        <p>
+          At Softnotch, we go beyond automation. Our intelligent chatbots combine empathy
+          with efficiency—delivering conversations that convert customers and
+          scale your brand engagement effortlessly.
+        </p>
+      </div>
+
+      <div class="sn-feature-content">
+        <div class="sn-feature-image">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+            alt="AI Chatbot Illustration"
+          />
+        </div>
+
+        <div class="sn-feature-grid">
+          <div class="sn-feature-card">
+            <div class="sn-icon">💬</div>
+            <h3>24/7 Automated Support</h3>
+            <p>
+              Deliver instant responses and solutions any time of day—reducing
+              dependency on manual teams and boosting satisfaction.
+            </p>
+          </div>
+
+          <div class="sn-feature-card">
+            <div class="sn-icon">🧠</div>
+            <h3>Smart Conversation Flow</h3>
+            <p>
+              Our chatbots use NLP to understand intent, tone, and
+              context—making every interaction feel natural and human-like.
+            </p>
+          </div>
+
+          <div class="sn-feature-card">
+            <div class="sn-icon">⚙️</div>
+            <h3>Multi-Platform Integration</h3>
+            <p>
+              Deploy across WhatsApp, Messenger, Shopify, or your website
+              seamlessly—keeping your brand always connected.
+            </p>
+          </div>
+
+          <div class="sn-feature-card">
+            <div class="sn-icon">📊</div>
+            <h3>Lead Capture & Analytics</h3>
+            <p>
+              Gain insights into customer behavior, gather leads, and
+              personalize communication using AI-powered analytics.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

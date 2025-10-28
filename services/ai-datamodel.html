@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Data Models — Softnotch Technologies</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Poppins",sans-serif;background:#fff;color:#222;overflow-x:hidden}
+h1,h2,h3{line-height:1.2}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  text-align:center;
+  padding:70px 20px 60px;
+  overflow:hidden;
+}
+.hero h1{
+  font-size:2rem;
+  color:#0d82fd;
+  font-weight:700;
+}
+.hero p{
+  font-size:0.8rem;
+  color:#444;
+  max-width:650px;
+  margin:12px auto 25px;
+}
+.cta-btn{
+  display:inline-block;
+  background:linear-gradient(135deg,#04df9a,#0d82fd);
+  color:#fff;
+  padding:12px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.cta-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 20px rgba(13,130,253,.25);
+}
+
+/* ===== Animated background ===== */
+.bg-shape{position:absolute;border-radius:50%;opacity:.1;z-index:-1}
+.bg1{width:180px;height:180px;background:#04df9a;top:-50px;left:-60px;}
+.bg2{width:280px;height:280px;background:#0d82fd;bottom:-100px;right:-60px;}
+
+/* ===== SECTIONS ===== */
+section{padding:55px 20px;text-align:center}
+h2{color:#0d82fd;font-size:1.5rem;font-weight:700;margin-bottom:10px}
+p{font-size:0.8rem;line-height:1.6;color:#555;max-width:740px;margin:0 auto}
+
+/* ===== GRID CARDS ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:25px;
+}
+.card{
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:20px 16px;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 5px 15px rgba(0,0,0,.07);
+}
+.card h3{color:#04df9a;font-size:1rem;margin-bottom:6px}
+
+/* ===== CTA FINAL ===== */
+.cta-final{
+  position:relative;
+  background:linear-gradient(135deg,#0b6edb,#03c886);
+  color:#fff;
+  padding:80px 20px;
+  text-align:center;
+  overflow:visible; /* ✅ prevent content clipping */
+}
+.cta-final::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.1); /* lighter overlay */
+  z-index:0;
+}
+.cta-final h2{
+  position:relative;
+  z-index:2; /* ✅ ensure text appears above overlay */
+  color:#fff;
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:18px;
+  text-shadow:0 2px 10px rgba(0,0,0,0.25);
+}
+.cta-final a{
+  position:relative;
+  z-index:2;
+  background:#fff;
+  color:#0d82fd;
+  font-weight:600;
+  padding:12px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  transition:.3s;
+}
+.cta-final a:hover{
+  background:#04df9a;
+  color:#fff;
+  box-shadow:0 4px 15px rgba(4,223,154,0.4);
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  .hero{padding:55px 16px 45px}
+  .hero h1{font-size:1.8rem}
+  .hero p{font-size:.9rem}
+  h2{font-size:1.3rem}
+  p{font-size:.85rem}
+  .card{padding:16px 12px}
+  .card h3{font-size:.95rem}
+  .cta-final h2{font-size:1.35rem}
+}
+@media(max-width:480px){
+  .hero{padding:45px 14px 35px}
+  .hero h1{font-size:1.4rem}
+  .hero p{font-size:.82rem}
+  .cta-btn{padding:9px 22px;font-size:.85rem}
+  section{padding:40px 14px}
+  h2{font-size:1.1rem}
+  .card{padding:14px 10px}
+  .card h3{font-size:.9rem}
+  p{font-size:.8rem}
+  .cta-final{padding:50px 14px}
+  .cta-final h2{font-size:1.15rem}
+  .cta-final a{font-size:.85rem;padding:9px 22px}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="bg-shape bg1"></div>
+  <div class="bg-shape bg2"></div>
+  <h1>Turning Data Into Business Advantage</h1>
+  <p>AI models that see ahead, adapt fast, and give your brand the power to outpace change.</p>
+  <a href="#" class="cta-btn">Unlock Smart Insights →</a>
+</section>
+
+<!-- ===== SECTION 1 ===== -->
+<section>
+  <h2>Intelligence That Scales</h2>
+  <p>At Softnotch, AI isn’t about coding complexity—it’s about clarity and results. Our data models transform streams of information into growth strategies you can act on. From customer engagement to operational forecasting, we make AI the backbone of smarter decisions.</p>
+</section>
+
+<!-- ===== SECTION 2 ===== -->
+<section>
+  <h2>How We Shape Growth</h2>
+  <div class="grid">
+    <div class="card"><h3>Predictive Intelligence</h3><p>Spot trends and customer behaviors before they unfold.</p></div>
+    <div class="card"><h3>Precision Scoring</h3><p>Identify your highest-value leads and opportunities.</p></div>
+    <div class="card"><h3>Personalized Journeys</h3><p>Craft experiences that feel tailor-made for every customer.</p></div>
+    <div class="card"><h3>Future Forecasting</h3><p>Align supply, demand, and resources with accuracy.</p></div>
+    <div class="card"><h3>Trust & Security</h3><p>Detect anomalies and prevent risks in real time.</p></div>
+    <div class="card"><h3>Custom-Built Models</h3><p>AI designed to fit your business, not the other way around.</p></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3 ===== -->
+<section>
+  <h2>Where We Make Impact</h2>
+  <div class="grid">
+    <div class="card"><h3>Retail & E-Commerce</h3><p>Hyper-personalized shopping and recommendation engines.</p></div>
+    <div class="card"><h3>FMCG & D2C Brands</h3><p>Smarter campaigns, reduced churn, optimized inventory.</p></div>
+    <div class="card"><h3>Finance & Real Estate</h3><p>Risk modeling, fraud detection, predictive scoring.</p></div>
+    <div class="card"><h3>Healthcare & Wellness</h3><p>Patient outcome predictions and data-driven care.</p></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4 ===== -->
+<section>
+  <h2>The Softnotch Difference</h2>
+  <div class="grid">
+    <div class="card"><h3>Scalable by Design</h3><p>From startups to enterprises, we grow with you.</p></div>
+    <div class="card"><h3>Seamless by Default</h3><p>Integrates easily with CRMs, ERPs, Shopify, and beyond.</p></div>
+    <div class="card"><h3>Expertise That Delivers</h3><p>Backed by years of cross-industry problem-solving.</p></div>
+    <div class="card"><h3>Adaptive by Nature</h3><p>AI that evolves as your market and data shift.</p></div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="cta-final">
+  <h2>The future belongs to businesses that think ahead.</h2>
+  <a href="#">Build With AI Today →</a>
+</section>
+
+<!-- ===== GSAP ANIMATIONS ===== -->
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from(".hero h1",{y:40,opacity:0,duration:1});
+gsap.from(".hero p",{y:25,opacity:0,delay:.3,duration:.8});
+gsap.from(".cta-btn",{scale:.8,opacity:0,delay:.6,duration:.6});
+
+gsap.utils.toArray("section h2").forEach(el=>{
+  gsap.from(el,{
+    scrollTrigger:{trigger:el,start:"top 85%"},
+    y:30,opacity:0,duration:.7
+  });
+});
+gsap.utils.toArray(".card").forEach(el=>{
+  gsap.from(el,{
+    scrollTrigger:{trigger:el,start:"top 90%"},
+    y:20,opacity:0,duration:.5
+  });
+});
+
+gsap.to(".bg1",{x:50,y:30,repeat:-1,yoyo:true,duration:7,ease:"sine.inOut"});
+gsap.to(".bg2",{x:-60,y:-40,repeat:-1,yoyo:true,duration:8,ease:"sine.inOut"});
+</script>
+</body>
+</html>
