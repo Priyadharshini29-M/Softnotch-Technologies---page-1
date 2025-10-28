@@ -1,0 +1,199 @@
+<section class="at-footer-1">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .at-footer-1 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 60px;
+      padding: 60px 8%;
+      background-color: #000;
+      color: #cfcfcf;
+      font-family: "Poppins", sans-serif;
+      position: relative;
+    }
+
+    .at-footer-col-1 {
+      flex: 1 1 200px;
+      min-width: 220px;
+    }
+
+    .at-footer-logo-1 {
+      width: 140px;
+      margin-bottom: 20px;
+    }
+
+    .at-footer-address-1 {
+      font-style: normal;
+      line-height: 1.8;
+      font-size: 15px;
+      color: #b5b5b5;
+    }
+
+    .at-footer-heading-1 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    .at-footer-links-1 {
+      list-style: none;
+      padding: 0;
+    }
+
+    .at-footer-links-1 li {
+      margin-bottom: 8px;
+    }
+
+    .at-footer-links-1 a {
+      text-decoration: none;
+      color: #b5b5b5;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    .at-footer-links-1 a:hover {
+      color: #fff;
+    }
+
+    .at-footer-bottom-1 {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      text-align: center;
+      padding: 20px 10px;
+      color: #999;
+      font-size: 14px;
+      background: #000;
+    }
+
+    /* ===== Floating Buttons ===== */
+    .at-floating-btn-1 {
+      position: fixed;
+      right: 30px;
+      bottom: 100px;
+      background: #fff;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      color: #000;
+      font-weight: 500;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      z-index: 1000;
+      font-size: 14px;
+      transition: all 0.3s ease;
+    }
+
+    .at-floating-btn-1:hover {
+      background: linear-gradient(90deg, #00ff9d, #00c4ff);
+      color: #fff;
+    }
+
+    .at-scroll-top-1 {
+      position: fixed;
+      right: 40px;
+      bottom: 30px;
+      background: #191919;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #00ff9d;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 999;
+    }
+
+    .at-scroll-top-1:hover {
+      background: #00ff9d;
+      color: #000;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .at-footer-1 {
+        flex-direction: column;
+        gap: 40px;
+        padding: 50px 20px;
+      }
+
+      .at-footer-col-1 {
+        text-align: left;
+      }
+
+      .at-floating-btn-1 {
+        bottom: 80px;
+        right: 20px;
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .at-scroll-top-1 {
+        width: 45px;
+        height: 45px;
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+  </style>
+
+  <!-- ===== Footer Columns ===== -->
+  <div class="at-footer-col-1">
+    <img
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Active_Theory_logo.svg/320px-Active_Theory_logo.svg.png"
+      alt="Active Theory Logo"
+      class="at-footer-logo-1"
+    />
+    <address class="at-footer-address-1">
+      Softnotch Technologies<br />
+      1st Floor, 200/393, SLV DS Centre,<br />
+      Near Chettinad Courtyard, Siddhapudur,<br />
+      Coimbatore - 641044.<br /><br />
+      Hours: 8:00 – 19:00, Mon - Sat
+    </address>
+  </div>
+
+  <div class="at-footer-col-1">
+    <h4 class="at-footer-heading-1">Pages</h4>
+    <ul class="at-footer-links-1">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Blogs</a></li>
+    </ul>
+  </div>
+
+  <div class="at-footer-col-1">
+    <h4 class="at-footer-heading-1">Support</h4>
+    <ul class="at-footer-links-1">
+      <li><a href="#">Forum Support</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <div class="at-footer-col-1">
+    <h4 class="at-footer-heading-1">Services</h4>
+    <ul class="at-footer-links-1">
+      <li><a href="#">AI-Powered Marketing</a></li>
+      <li><a href="#">Performance Marketing</a></li>
+      <li><a href="#">E-commerce Development & Scaling</a></li>
+    </ul>
+  </div>
+
+  <!-- ===== Footer Bottom ===== -->
+  <div class="at-footer-bottom-1">
+    Copyright © 2025 Softnotch Technologies. All rights reserved.
+  </div>
+
+  <!-- ===== Floating Buttons ===== -->
+  <div class="at-floating-btn-1">📅 Book a Meeting</div>
+  <div class="at-scroll-top-1" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });">↑</div>
+</section>
